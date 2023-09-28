@@ -142,9 +142,10 @@
         <div class="header-left">
             <h1>Dashboard</h1>
         </div>
-        <div class="header-right">
-            <a href="#">Logout</a>
-        </div>
+        <form action="{{ route('logout') }}" method="post">
+            @csrf
+            <button class="header-right btn btn-light">Logout</button>
+        </form>
     </header>
 
     <div class="container">
