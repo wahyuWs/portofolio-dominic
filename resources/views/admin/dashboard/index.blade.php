@@ -149,7 +149,7 @@
 
     <div class="container">
         <h1>Menu Admin</h1>
-        <div class="card" style="background-image: url('images/bg-portofolio.avif');">
+        <div class="card" style="background-image: url({{ asset('images/bg-portofolio.avif') }});">
             <div class="card-content">
                 <h2>Portofolio</h2>
                 <p>Tambahkan portofolio dibawah.</p>
@@ -158,7 +158,7 @@
                 </button>
             </div>
         </div>
-        <div class="card" style="background-image: url('images/bg-about.avif');">
+        <div class="card" style="background-image: url({{ asset('images/bg-about.avif') }});">
             <div class="card-content">
                 <h2>About</h2>
                 <p>Tambahkan About.</p>
@@ -167,7 +167,7 @@
                 </button>
             </div>
         </div>
-        <div class="card" style="background-image: url('images/bg-services.avif');">
+        <div class="card" style="background-image: url({{ asset('images/bg-services.avif') }});">
             <div class="card-content">
                 <h2>Services</h2>
                 <p>Tambahkan Jasa.</p>
@@ -178,7 +178,7 @@
         </div>
     </div>
 
-    //modal portofolio
+    {{-- modal portofolio --}}
     <div class="modal fade" id="modalportofolio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -216,7 +216,7 @@
         </div>
     </div>
 
-    //modal about
+    {{-- modal about --}}
     <div class="modal fade" id="modalabout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -226,7 +226,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-floating">
-                        <textarea class="form-control" name="about" style="height: 100px"></textarea>
+                        <textarea class="form-control" name="description" style="height: 100px"></textarea>
                         <label for="floatingTextarea2">About you</label>
                     </div>
                 </div>
@@ -238,7 +238,7 @@
         </div>
     </div>
 
-    //modal services
+    {{-- modal services --}}
     <div class="modal fade" id="modalservices" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
