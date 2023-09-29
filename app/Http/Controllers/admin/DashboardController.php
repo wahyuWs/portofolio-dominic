@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\AboutModel;
 use App\Models\PortofolioModel;
+use App\Models\ServiceModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -55,5 +56,24 @@ class DashboardController extends Controller
         }
 
         return back()->with('error', 'An error occurred, please try again.');
+    }
+
+    public function createServices(Request $request)
+    {
+        $services = $request->validate([
+            'layanan' => 'required',
+            'logo' => 'required|image',
+            'description' => 'required'
+        ]);
+
+        if($request->logo != null)
+        {
+            $services['logo'] = $request->file('logo')->store('image_project');
+
+        }
+
+        ServiceModel::create($services);
+
+        return back()->with('success', 'Services Created');
     }
 }

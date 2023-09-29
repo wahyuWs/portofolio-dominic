@@ -29,4 +29,6 @@ Route::middleware('auth')->group(function() {
     Route::post('create-portofolio', [DashboardController::class, 'createPortofolio'])->name('create.portofolio');
     //routing about
     Route::post('create-about', [DashboardController::class, 'createAbout'])->name('create.about');
+    //routing services
+    Route::post('create-services', [DashboardController::class, 'createServices'])->name('create.services');
 });

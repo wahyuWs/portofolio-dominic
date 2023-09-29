@@ -164,7 +164,7 @@
         <div class="card" style="background-image: url({{ asset('images/bg-portofolio.avif') }});">
             <div class="card-content">
                 <h2>Portofolio</h2>
-                <p>Tambahkan portofolio dibawah.</p>
+                <p>Add portfolio below.</p>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalportofolio">
                     Insert
                 </button>
@@ -173,7 +173,7 @@
         <div class="card" style="background-image: url({{ asset('images/bg-about.avif') }});">
             <div class="card-content">
                 <h2>About</h2>
-                <p>Tambahkan About.</p>
+                <p>Add about below.</p>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalabout">
                     Insert
                 </button>
@@ -182,7 +182,7 @@
         <div class="card" style="background-image: url({{ asset('images/bg-services.avif') }});">
             <div class="card-content">
                 <h2>Services</h2>
-                <p>Tambahkan Jasa.</p>
+                <p>Add services below.</p>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalservices">
                     Insert
                 </button>
@@ -260,34 +260,38 @@
     {{-- modal services --}}
     <div class="modal fade" id="modalservices" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Services</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="exampleInputText" class="form-label">Layanan</label>
-                        <input type="text" class="form-control rounded" name="layanan">
+        <form action="{{ route('create.services') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Services</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputText" class="form-label">Logo</label>
-                        <input name="logo"
-                            class="appearance-none block w-full bg-dark text-light border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            type="file">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="exampleInputText" class="form-label">Layanan</label>
+                            <input type="text" class="form-control rounded" name="layanan">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputText" class="form-label">Logo</label>
+                            <input name="logo"
+                                class="appearance-none block w-full bg-dark text-light border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                type="file">
+                        </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" name="description" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">description</label>
+                        </div>
                     </div>
-                    <div class="form-floating">
-                        <textarea class="form-control" name="description" style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">description</label>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
