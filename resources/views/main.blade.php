@@ -90,18 +90,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="message-box">
-                        <h2>About Dominic.</h2>
-                        <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus
-                            bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis
-                            dis
-                            parturient montes, nascetur ridiculus mus. Sed vitae rutrum neque. Ut id erat sit amet
-                            libero
-                            bibendum aliquam. Donec ac egestas libero, eu bibendum risus. Phasellus et congue justo.
-                        </p>
-                        <p>Sed vitae rutrum neque. Ut id erat sit amet libero bibendum aliquam. Donec ac egestas libero,
-                            eu
-                            bibendum risus. Phasellus et congue justo.</p>
-
+                        <h2>About Wahyu.</h2>
+                        <p>{{ $about->description }}</p>
                         <a href="#" class="sim-btn btn-hover-new" data-text="Download CV"><span>Download
                                 CV</span></a>
                     </div><!-- end messagebox -->
@@ -125,66 +115,18 @@
             </div><!-- end title -->
 
             <div class="row">
-                <div class="col-md-4">
-                    <div class="services-inner-box">
-                        <div class="ser-icon">
-                            <i class="flaticon-seo"></i>
+                @foreach ($services as $item)
+                    <div class="col-md-4">
+                        <div class="services-inner-box">
+                            <div class="ser-icon">
+                                <img src="{{ asset('storage/' . $item->logo) }}" alt="" width="100"
+                                    height="60">
+                            </div>
+                            <h2>{{ $item->layanan }}</h2>
+                            <p>{{ $item->description }}</p>
                         </div>
-                        <h2>Web Development</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                    </div>
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="services-inner-box">
-                        <div class="ser-icon">
-                            <i class="flaticon-development"></i>
-                        </div>
-                        <h2>Responsive Design</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                    </div>
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="services-inner-box">
-                        <div class="ser-icon">
-                            <i class="flaticon-process"></i>
-                        </div>
-                        <h2>Creative Design</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                    </div>
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="services-inner-box">
-                        <div class="ser-icon">
-                            <i class="flaticon-discuss-issue"></i>
-                        </div>
-                        <h2>Support</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                    </div>
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="services-inner-box">
-                        <div class="ser-icon">
-                            <i class="flaticon-idea"></i>
-                        </div>
-                        <h2>Web Idea</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                    </div>
-                </div><!-- end col -->
-                <div class="col-md-4">
-                    <div class="services-inner-box">
-                        <div class="ser-icon">
-                            <i class="flaticon-idea-1"></i>
-                        </div>
-                        <h2>Graphic Design</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua.</p>
-                    </div>
-                </div><!-- end col -->
+                    </div><!-- end col -->
+                @endforeach
             </div><!-- end row -->
         </div><!-- end container -->
     </div><!-- end section -->
@@ -202,74 +144,29 @@
                     <div class="button-group filter-button-group text-left">
                         <button class="active" data-filter="*">All</button>
                         <button data-filter=".gal_a">Web Development</button>
-                        <button data-filter=".gal_b">Creative Design</button>
-                        <button data-filter=".gal_c">Graphic Design</button>
+                        <button data-filter=".gal_b">Android Development</button>
                     </div>
                 </div>
             </div>
 
             <div class="gallery-list row">
-                <div class="col-md-4 col-sm-6 gallery-grid gal_a gal_b">
+                @foreach ($portofolio as $item)
+                    @if ($item->kategori_project == 'Web Development')
+                        <div class="col-md-4 col-sm-6 gallery-grid gal_a">
+                        @else
+                            <div class="col-md-4 col-sm-6 gallery-grid gal_b">
+                    @endif
                     <div class="gallery-single fix">
-                        <img src="uploads/gallery_img-01.jpg" class="img-fluid" alt="Image">
+                        <img src="{{ asset('storage/' . $item->image_project) }}" class="img-fluid" alt="Image">
                         <div class="img-overlay">
-                            <a href="uploads/gallery_img-01.jpg" data-rel="prettyPhoto[gal]"
+                            <a href="{{ asset('storage/' . $item->image_project) }}" data-rel="prettyPhoto[gal]"
                                 class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 gallery-grid gal_c gal_b">
-                    <div class="gallery-single fix">
-                        <img src="uploads/gallery_img-02.jpg" class="img-fluid" alt="Image">
-                        <div class="img-overlay">
-                            <a href="uploads/gallery_img-02.jpg" data-rel="prettyPhoto[gal]"
-                                class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 gallery-grid gal_a gal_c">
-                    <div class="gallery-single fix">
-                        <img src="uploads/gallery_img-03.jpg" class="img-fluid" alt="Image">
-                        <div class="img-overlay">
-                            <a href="uploads/gallery_img-03.jpg" data-rel="prettyPhoto[gal]"
-                                class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 gallery-grid gal_b gal_a">
-                    <div class="gallery-single fix">
-                        <img src="uploads/gallery_img-04.jpg" class="img-fluid" alt="Image">
-                        <div class="img-overlay">
-                            <a href="uploads/gallery_img-04.jpg" data-rel="prettyPhoto[gal]"
-                                class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 gallery-grid gal_a gal_c">
-                    <div class="gallery-single fix">
-                        <img src="uploads/gallery_img-05.jpg" class="img-fluid" alt="Image">
-                        <div class="img-overlay">
-                            <a href="uploads/gallery_img-05.jpg" data-rel="prettyPhoto[gal]"
-                                class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 col-sm-6 gallery-grid gal_c gal_a">
-                    <div class="gallery-single fix">
-                        <img src="uploads/gallery_img-06.jpg" class="img-fluid" alt="Image">
-                        <div class="img-overlay">
-                            <a href="uploads/gallery_img-06.jpg" data-rel="prettyPhoto[gal]"
-                                class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
+            @endforeach
         </div>
+    </div>
     </div>
     </div>
 

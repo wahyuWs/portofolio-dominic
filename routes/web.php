@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
-
+Route::get('/', [MainController::class, 'index']);
 Route::post('authentication', [AuthController::class, 'authentication'])->name('authentication');
 Route::get('admin', [AuthController::class, 'index'])->name('login');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
