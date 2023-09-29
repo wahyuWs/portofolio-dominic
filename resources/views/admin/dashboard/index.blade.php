@@ -148,6 +148,17 @@
         </form>
     </header>
 
+    @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @elseif (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="container">
         <h1>Menu Admin</h1>
         <div class="card" style="background-image: url({{ asset('images/bg-portofolio.avif') }});">
@@ -181,62 +192,69 @@
 
     {{-- modal portofolio --}}
     <div class="modal fade" id="modalportofolio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Portofolio</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="exampleInputText" class="form-label">Nama Project</label>
-                        <input type="text" class="form-control rounded" name="nama_project">
+        <form action="{{ route('create.portofolio') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Portofolio</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputText" class="form-label">Kategori
-                            Project</label>
-                        <select class="form-select rounded" name="kategori_project">
-                            <option value="" selected>Pilih Kategori</option>
-                            <option value="Biasa">Web Development</option>
-                            <option value="Popular">Android Development</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputText" class="form-label">Image Project</label>
-                        <input name="image_project"
-                            class="appearance-none block w-full bg-dark text-light border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            type="file">
-                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="exampleInputText" class="form-label">Nama Project</label>
+                            <input type="text" class="form-control rounded" name="nama_project">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputText" class="form-label">Kategori
+                                Project</label>
+                            <select class="form-select rounded" name="kategori_project">
+                                <option value="" selected>Pilih Kategori</option>
+                                <option value="Web Development">Web Development</option>
+                                <option value="Android Development">Android Development</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputText" class="form-label">Image Project</label>
+                            <input name="image_project"
+                                class="appearance-none block w-full bg-dark text-light border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                type="file">
+                        </div>
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     {{-- modal about --}}
     <div class="modal fade" id="modalabout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">About</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-floating">
-                        <textarea class="form-control" name="description" style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">About you</label>
+        <form action="{{ route('create.about') }}" method="post">
+            @csrf
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">About</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-floating">
+                            <textarea class="form-control" name="description" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">About you</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
             </div>
-        </div>
+        </form>
     </div>
 
     {{-- modal services --}}

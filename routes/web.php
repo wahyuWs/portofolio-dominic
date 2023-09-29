@@ -23,4 +23,10 @@ Route::post('authentication', [AuthController::class, 'authentication'])->name('
 Route::get('admin', [AuthController::class, 'index'])->name('login');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+Route::middleware('auth')->group(function() {
+    Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // routing portofolio
+    Route::post('create-portofolio', [DashboardController::class, 'createPortofolio'])->name('create.portofolio');
+    //routing about
+    Route::post('create-about', [DashboardController::class, 'createAbout'])->name('create.about');
+});
