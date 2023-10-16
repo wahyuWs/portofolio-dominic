@@ -41,27 +41,17 @@
 
     @include('header.navigation')
 
-    <section id="home" class="main-banner parallaxie" style="background: url('uploads/banner-01.jpg')">
+    <section id="home" class="main-banner parallaxie" style="background: url('uploads/wahyu_bg.jpg')">
         <div class="heading">
-            <h1>hello i'm Dominic</h1>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br>sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua."</p>
-            <h3 class="cd-headline clip is-full-width">
-                <span>Lorem ipsum dolor sit amet </span>
-                <span class="cd-words-wrapper">
-                    <b class="is-visible">Web Developer</b>
-                    <b>Web Design</b>
-                    <b>Creative Design</b>
-                    <b>Graphic Design</b>
-                </span>
-            </h3>
+            <h1>hello i'm Wahyu Santoso</h1>
+            <p>"i'm a android developer & laravel enthusiast. Currently, I focused on android development with kotlin"
+            </p>
         </div>
     </section>
 
     <svg id="clouds" class="hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%"
         height="100" viewBox="0 0 85 100" preserveAspectRatio="none">
-        <path
-            d="M-5 100 Q 0 20 5 100 Z
+        <path d="M-5 100 Q 0 20 5 100 Z
             M0 100 Q 5 0 10 100
             M5 100 Q 10 30 15 100
             M10 100 Q 15 10 20 100
@@ -90,7 +80,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="message-box">
-                        <h2>About Wahyu.</h2>
+                        <h2>About.</h2>
                         <p>{{ $about->description }}</p>
                         <a href="#" class="sim-btn btn-hover-new" data-text="Download CV"><span>Download
                                 CV</span></a>
@@ -110,14 +100,12 @@
         <div class="container">
             <div class="section-title text-left">
                 <h3>Services</h3>
-                <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.
-                </p>
             </div><!-- end title -->
 
             <div class="row">
                 @foreach ($services as $item)
                     <div class="col-md-4">
-                        <div class="services-inner-box">
+                        <div class="services-inner-box rounded">
                             <div class="ser-icon">
                                 <img src="{{ asset('storage/' . $item->logo) }}" alt="" width="100"
                                     height="60">
@@ -135,8 +123,6 @@
         <div class="container">
             <div class="section-title text-left">
                 <h3>Portfolio</h3>
-                <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.
-                </p>
             </div><!-- end title -->
 
             <div class="gallery-menu row">
@@ -159,8 +145,9 @@
                     <div class="gallery-single fix">
                         <img src="{{ asset('storage/' . $item->image_project) }}" class="img-fluid" alt="Image">
                         <div class="img-overlay">
-                            <a href="{{ asset('storage/' . $item->image_project) }}" data-rel="prettyPhoto[gal]"
-                                class="hoverbutton global-radius"><i class="fa fa-picture-o"></i></a>
+                            <a href="https://projectwahyusantoso.masuk.id/" class="hoverbutton">
+                                <button class="btn-secondary btn-sm">visit</button>
+                            </a>
                         </div>
                     </div>
             </div>
@@ -174,8 +161,6 @@
         <div class="container">
             <div class="section-title text-left">
                 <h3>Contact</h3>
-                <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.
-                </p>
             </div><!-- end title -->
 
             <div class="row">

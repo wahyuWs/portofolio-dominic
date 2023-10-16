@@ -304,7 +304,7 @@ a img.aligncenter {
 -------------------------------------------------------------------*/
 
 .navbar-dark{
-	
+
 }
 
 .navbar-dark .navbar-nav .nav-link{
@@ -362,7 +362,7 @@ a img.aligncenter {
     right: 0;
     background-color: #000;
     z-index: 0;
-    opacity: .6;
+    opacity: .8;
 }
 .heading{
 	color: #fff;
@@ -374,7 +374,7 @@ a img.aligncenter {
 .heading h1{
 	color: #ffffff;
 	font-weight: 700;
-	font-size: 62px;
+	font-size: 42px;
 	text-transform: uppercase;
 }
 .heading p{
@@ -408,9 +408,9 @@ a img.aligncenter {
   opacity: 1;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-xclip 
+xclip
 
 -------------------------------- */
 .cd-headline.clip span {
@@ -1279,7 +1279,6 @@ xclip
 }
 
 .hoverbutton {
-    background-color: #333333;
     position: absolute;
     color: #ffffff !important;
     top: 70%;
@@ -1426,7 +1425,7 @@ hr.invis1 {
 .filter-button-group button.active{
 	background: #333333;
 	color: #fff;
-	box-shadow: 2px 20px 45px 5px rgba(0,0,0,.2);	
+	box-shadow: 2px 20px 45px 5px rgba(0,0,0,.2);
 }
 
 .filter-button-group button{
@@ -2426,8 +2425,8 @@ select.mobile-device {
 @keyframes rotate {
   0% { border-width: 10px; }
   25% { border-width: 3px; }
-  50% { 
-    transform: rotate(115deg); 
+  50% {
+    transform: rotate(115deg);
     border-width: 10px;
   }
   75% { border-width: 3px;}

@@ -21,7 +21,8 @@ class DashboardController extends Controller
         $portofolio = $request->validate([
             'nama_project' => 'required',
             'kategori_project' => 'required',
-            'image_project' => 'required'
+            'image_project' => 'required',
+            'url' => 'required'
         ]);
 
         if($request->image_project != null)

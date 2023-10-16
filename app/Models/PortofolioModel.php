@@ -12,6 +12,7 @@ class PortofolioModel extends Model
     protected $fillable = [
         'nama_project',
         'kategori_project',
-        'image_project'
+        'image_project',
+        'url'
     ];
 }

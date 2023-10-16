@@ -215,6 +215,10 @@
                             </select>
                         </div>
                         <div class="mb-3">
+                            <label for="exampleInputText" class="form-label">Project Url</label>
+                            <input type="text" class="form-control rounded" name="url">
+                        </div>
+                        <div class="mb-3">
                             <label for="exampleInputText" class="form-label">Image Project</label>
                             <input name="image_project"
                                 class="appearance-none block w-full bg-dark text-light border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
