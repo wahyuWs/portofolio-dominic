@@ -18,9 +18,12 @@
     <!-- Site Icons -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Site CSS -->
     <link rel="stylesheet" href="style.css">
     <!-- Responsive CSS -->
@@ -43,8 +46,8 @@
 
     <section id="home" class="main-banner parallaxie" style="background: url('uploads/wahyu_bg.jpg')">
         <div class="heading">
-            <h1>hello i'm Wahyu Santoso</h1>
-            <p>"i'm a android developer & laravel enthusiast. Currently, I focused on android development with kotlin"
+            <h1>Hello, I'm Wahyu Santoso</h1>
+            <p>"Android developer & laravel enthusiast. Currently, I focused on android development with kotlin"
             </p>
         </div>
     </section>
@@ -145,17 +148,41 @@
                     <div class="gallery-single fix">
                         <img src="{{ asset('storage/' . $item->image_project) }}" class="img-fluid" alt="Image">
                         <div class="img-overlay">
-                            <a href="https://projectwahyusantoso.masuk.id/" class="hoverbutton">
-                                <button class="btn-secondary btn-sm">visit</button>
-                            </a>
+                            @if ($item->kategori_project == 'Web Development')
+                                <a href="https://projectwahyusantoso.masuk.id/" class="hoverbutton">
+                                    <button class="btn-secondary btn-sm">visit</button>
+                                </a>
+                            @else
+                                <div class="hoverbutton">
+                                    <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#visitAndroidProject">
+                                        visit
+                                    </button>
+                                </div>
+                            @endif
                         </div>
                     </div>
+            </div>
+            {{-- modal portofolio --}}
+            <div class="modal fade" id="visitAndroidProject" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            hello
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             @endforeach
         </div>
     </div>
     </div>
     </div>
+
 
     <div id="contact" class="section db">
         <div class="container">
@@ -200,7 +227,7 @@
                                 <div class="col-lg-12 text-center">
                                     <div id="success"></div>
                                     <button id="sendMessageButton" class="sim-btn btn-hover-new"
-                                        data-text="Send Message" type="submit">Send Message</button>
+                                        data-text="Send Message" type="submit" disabled>Send Message</button>
                                 </div>
                             </div>
                         </form>
@@ -226,6 +253,9 @@
     <!-- ALL PLUGINS -->
     <script src="js/custom.js"></script>
     <script src="js/jquery.vide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
 
 </body>
 

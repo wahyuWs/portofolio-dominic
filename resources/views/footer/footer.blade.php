@@ -3,7 +3,6 @@
         <div class="footer-distributed">
             <div class="footer-left">
                 <p class="footer-links">
-                    <a href="#">Home</a>
                     <a href="#">About</a>
                     <a href="#">Contact</a>
                 </p>

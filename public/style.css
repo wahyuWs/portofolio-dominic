@@ -374,12 +374,12 @@ a img.aligncenter {
 .heading h1{
 	color: #ffffff;
 	font-weight: 700;
-	font-size: 42px;
+	font-size: 22px;
 	text-transform: uppercase;
 }
 .heading p{
 	font-size: 18px;
-	padding: 20px 0px;
+	padding: 10px 0px;
 }
 
 .heading h3{
@@ -538,7 +538,7 @@ xclip
 .section-title {
     display: block;
     position: relative;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 .section-title p {
