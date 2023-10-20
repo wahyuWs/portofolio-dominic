@@ -149,13 +149,13 @@
                         <img src="{{ asset('storage/' . $item->image_project) }}" class="img-fluid" alt="Image">
                         <div class="img-overlay">
                             @if ($item->kategori_project == 'Web Development')
-                                <a href="https://projectwahyusantoso.masuk.id/" class="hoverbutton">
+                                <a href="{{ $item->url }}" target="_blank" class="hoverbutton">
                                     <button class="btn-secondary btn-sm">visit</button>
                                 </a>
                             @else
                                 <div class="hoverbutton">
                                     <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#visitAndroidProject">
+                                        data-bs-target="#visitAndroidProject-{{ $item->id }}">
                                         visit
                                     </button>
                                 </div>
@@ -164,15 +164,20 @@
                     </div>
             </div>
             {{-- modal portofolio --}}
-            <div class="modal fade" id="visitAndroidProject" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="visitAndroidProject-{{ $item->id }}" tabindex="-1" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-body">
-                            hello
+                            <video controls width="480" height="320">
+                                <source src="{{ asset('storage/' . $item->video_path) }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-sm"
                                 data-bs-dismiss="modal">Close</button>
+                            <a href="{{ $item->url }}" target="_blank" class="btn btn-danger btn-sm">Install
+                                App</a>
                         </div>
                     </div>
                 </div>
