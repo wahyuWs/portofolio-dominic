@@ -201,6 +201,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <input type="text" class="form-control rounded" id="kategori_project" name="kategori_project"
+                            hidden>
                         <div class="mb-3">
                             <label for="exampleInputText" class="form-label">Nama Project</label>
                             <input type="text" class="form-control rounded" name="nama_project">
@@ -208,15 +210,34 @@
                         <div class="mb-3">
                             <label for="exampleInputText" class="form-label">Kategori
                                 Project</label>
-                            <select class="form-select rounded" name="kategori_project">
-                                <option value="" selected>Pilih Kategori</option>
-                                <option value="Web Development">Web Development</option>
-                                <option value="Android Development">Android Development</option>
-                            </select>
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleInputText" class="form-label">Project Url</label>
-                            <input type="text" class="form-control rounded" name="url">
+                        <p class="d-inline-flex gap-1">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#projectAndroidDevelopment" aria-expanded="false"
+                                aria-controls="projectAndroidDevelopment" id="btn_android">
+                                Android Development
+                            </button>
+                            <button class="btn btn-secondary" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#projectWebDevelopment" aria-expanded="false"
+                                aria-controls="projectWebDevelopment" id="btn_web">
+                                Web Development
+                            </button>
+                        </p>
+                        <div class="collapse" id="projectWebDevelopment">
+                            <div class="card card-body bg-secondary mb-3">
+                                <label for="exampleInputText" class="form-label">Project Url</label>
+                                <input type="text" class="form-control rounded" id="url_web" name="url">
+                            </div>
+                        </div>
+                        <div class="collapse" id="projectAndroidDevelopment">
+                            <div class="card card-body bg-primary mb-3">
+                                <label for="exampleInputText" class="form-label">Video Project</label>
+                                <input name="video_path"
+                                    class="mb-3 appearance-none block w-full bg-dark text-light border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                    type="file">
+                                <label for="exampleInputText text-" class="form-label">Project Url</label>
+                                <input type="text" class="form-control rounded" id="url_android" name="url">
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputText" class="form-label">Image Project</label>
@@ -300,6 +321,33 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+    <script>
+        // Ambil elemen-elemen HTML yang diperlukan
+        var inputText = document.getElementById("kategori_project");
+        var inputTextUrlWeb = document.getElementById("url_web");
+        var inputTextUrlAndroid = document.getElementById("url_android");
+        var btnAndroid = document.getElementById("btn_android");
+        var btnWeb = document.getElementById("btn_web");
+
+        // Tambahkan event listener
+        btnAndroid.addEventListener("click", function() {
+            // Ganti nilai input teks dengan teks yang Anda inginkan
+            inputText.value = "Android Development";
+        });
+
+        btnWeb.addEventListener("click", function() {
+            // Ganti nilai input teks dengan teks yang Anda inginkan
+            inputText.value = "Web Development";
+        });
+
+        inputTextUrlWeb.addEventListener("input", function() {
+            inputTextUrlAndroid.value = inputTextUrlWeb.value
+        });
+
+        inputTextUrlAndroid.addEventListener("input", function() {
+            inputTextUrlWeb.value = inputTextUrlAndroid.value
+        });
     </script>
 </body>
 

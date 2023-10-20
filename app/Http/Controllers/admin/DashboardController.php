@@ -20,14 +20,20 @@ class DashboardController extends Controller
     {
         $portofolio = $request->validate([
             'nama_project' => 'required',
-            'kategori_project' => 'required',
+            'kategori_project' => 'nullable',
             'image_project' => 'required',
-            'url' => 'required'
+            'url' => 'nullable|url:http,https',
+            'video_path' => 'nullable'
         ]);
+
+        if($request->video_path != null)
+        {
+            $portofolio['video_path'] = $request->file('video_path')->store('video_project', 'hosting');
+        }
 
         if($request->image_project != null)
         {
-            $portofolio['image_project'] = $request->file('image_project')->store('image_project');
+            $portofolio['image_project'] = $request->file('image_project')->store('image_project', 'hosting');
 
         }
 

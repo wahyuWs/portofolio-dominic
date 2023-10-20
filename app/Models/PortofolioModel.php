@@ -13,6 +13,7 @@ class PortofolioModel extends Model
         'nama_project',
         'kategori_project',
         'image_project',
-        'url'
+        'url',
+        'video_path'
     ];
 }

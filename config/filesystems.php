@@ -56,6 +56,12 @@ return [
             'throw' => false,
         ],
 
+        'hosting' => [
+            'driver' => 'local',
+            'root' => storage_path() . '/../public/'. '/storage',
+            'visibility' => 'public',
+        ]
+
     ],
 
     /*
