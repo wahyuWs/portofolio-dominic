@@ -168,7 +168,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-body">
-                            <video controls width="480" height="320">
+                            <video controls width="470" height="320">
                                 <source src="{{ asset('storage/' . $item->video_path) }}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>

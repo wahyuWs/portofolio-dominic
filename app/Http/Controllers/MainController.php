@@ -15,7 +15,6 @@ class MainController extends Controller
         $services = ServiceModel::all();
         $portofolio = PortofolioModel::all();
 
-        // return $portofolio;
         return view('main', [
             'about' => $about,
             'services' => $services,
