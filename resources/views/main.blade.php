@@ -137,7 +137,7 @@
                     </div>
                 </div>
             </div>
-
+            //hello
             <div class="gallery-list row">
                 @foreach ($portofolio as $item)
                     @if ($item->kategori_project == 'Web Development')
